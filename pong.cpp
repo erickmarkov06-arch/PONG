@@ -43,6 +43,7 @@ int main()
         BeginDrawing();
         ClearBackground(BLACK);
         ball.draw();
+        ball.update();
         drawArena();
         Player1.draw();
         Ai.draw();
