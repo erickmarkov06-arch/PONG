@@ -8,4 +8,4 @@ Controlls:
             UP_ARROW : UP
             DOWN_ARROW : DOWN
 
-Game Website : 
+Game Website : https://erickmarkov06-arch.github.io/PONG/
