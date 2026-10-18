@@ -31,11 +31,11 @@ void Paddle::move()
 
     if (IsKeyDown(downKey))
     {
-        y += 5;
+        y += Paddle_Speed;
     }
     if (IsKeyDown(upKey))
     {
-        y -= 5;
+        y -= Paddle_Speed;
     }
     if (y > GetScreenHeight() - Paddle_Height)
     {
@@ -52,4 +52,16 @@ void Paddle::draw()
 }
 int Paddle::getScore(){
     return score;
+}
+bool Paddle::collision(double ballX, double ballY, double ballRadius){
+    if(((ballX - ballRadius < x + Paddle_Width) && (ballX + ballRadius > x)) &&
+        (ballY < y + Paddle_Height && ballY > y)){
+            return true;
+    }else{
+        return false;
+    }
+
+}
+void Paddle::addScore(){
+    score = score + 1;
 }

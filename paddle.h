@@ -1,7 +1,8 @@
 #pragma once
 
-const int Paddle_Width = 20;
-const int Paddle_Height = 100;
+const int Paddle_Width = 18;
+const int Paddle_Height = 120;
+const int Paddle_Speed = 10;
 
 class Paddle{
     private:
@@ -17,5 +18,7 @@ class Paddle{
         void move();
         void draw();
         int getScore();
+        bool collision(double ballX, double ballY, double ballRadius);
+        void addScore();
 
 };

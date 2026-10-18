@@ -33,6 +33,9 @@ int main()
     Paddle Player1(true, KEY_W, KEY_S);
     Paddle Ai(false, KEY_UP, KEY_DOWN);
     Ball ball = Ball();
+    bool leftHit;
+    bool rightHit;
+    int tempScore;
     
 
 
@@ -40,10 +43,20 @@ int main()
     {
         Player1.move();
         Ai.move();
+        leftHit = Player1.collision(ball.getX(), ball.getY(), CIRCLE_RADIUS);
+        rightHit = Ai.collision(ball.getX(), ball.getY(), CIRCLE_RADIUS);
+        ball.update(leftHit, rightHit);
+        tempScore = ball.pointCheck();
+        if(tempScore == 2){
+            Player1.addScore();
+            ball.reset();
+        }else if(tempScore == 1){
+            Ai.addScore();
+            ball.reset();
+        }
         BeginDrawing();
         ClearBackground(BLACK);
         ball.draw();
-        ball.update();
         drawArena();
         Player1.draw();
         Ai.draw();
